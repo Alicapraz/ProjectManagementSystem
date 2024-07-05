@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>{{data.editMode ? 'Güncelle' : 'Yeni Kart'}}</h2>
+
+<mat-dialog-content>
+    <mat-form-field style="width: 100%;">
+        <mat-label>Görev Başlığı</mat-label>
+        <input [(ngModel)]="TaskTitle" matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%;">
+        <mat-label>Görev Açıklama</mat-label>
+        <input [(ngModel)]="TaskDescription" matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%;">
+        <mat-label>Görevlendiren</mat-label>
+        <input [(ngModel)]="assignee" matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%;">
+        <mat-label>Teslim Tarihi</mat-label>
+        <input [(ngModel)]="dueDate" matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%;">
+        <mat-label>Görev Durumu</mat-label>
+        <input [(ngModel)]="TaskStatus" matInput>
+    </mat-form-field>
+
+    <div *ngFor="let task of tasksLoop; let i=index">
+        <mat-form-field style="width: 90%;">
+            <mat-label>Eklenecek Proje Adı</mat-label>
+            <input [(ngModel)]="tasks[i]" matInput>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button (click)="close()" mat-raised-button color="accent">İptal Et</button>
+    <button (click)="create()" mat-raised-button color="primary">{{data.editMode ? 'Güncelle' : 'Ekle'}}</button>
+</mat-dialog-actions>
